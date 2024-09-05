@@ -1,7 +1,8 @@
 # string_calculator.py
 import re
+from functools import reduce
 
-def add(numbers: str) -> int:
+def add(numbers: str, character: str) -> int:
     if not numbers:
         return 0
     
@@ -19,4 +20,8 @@ def add(numbers: str) -> int:
     if negatives:
         raise ValueError(f"negative numbers not allowed: {','.join(map(str, negatives))}")
     
-    return sum(num_list)
+    if character == '*':
+        product = reduce(lambda x, y: x * y, num_list)
+        return product
+    else:
+        return sum(num_list)
