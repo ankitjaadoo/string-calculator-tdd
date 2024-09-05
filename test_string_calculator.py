@@ -4,6 +4,9 @@ from string_calculator import add
 
 class TestStringCalculator(unittest.TestCase):
     
+    def test_multiply_single_number(self):
+        self.assertEqual(add("2", '*'),2)
+        
     def test_multiply_multiple_numbers(self):
         self.assertEqual(add("2,2", '*'),4)
 
